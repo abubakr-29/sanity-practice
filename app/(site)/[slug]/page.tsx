@@ -27,7 +27,10 @@ type PageProps = {
 //   };
 // }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({
+  params,
+}: PageProps): Promise<React.JSX.Element> {
+  // Added explicit return type
   // Fetch the page data using the slug from params
   const page = await getPage(params.slug);
 
