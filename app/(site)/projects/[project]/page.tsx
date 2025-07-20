@@ -1,4 +1,4 @@
-import { getProject, getProjects } from "@/sanity/sanity-utils";
+import { getProject } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
@@ -6,15 +6,9 @@ type Props = {
   params: { project: string };
 };
 
-export async function generateStaticParams() {
-  const projects = await getProjects();
-  return projects.map((p) => ({ project: p.slug }));
-}
-
 export default async function Project({ params }: Props) {
-  // const slug = params.project;
-  // const project = await getProject(slug);
-  const project = await getProject(params.project);
+  const slug = params.project;
+  const project = await getProject(slug);
 
   return (
     <div>

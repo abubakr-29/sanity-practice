@@ -1,12 +1,5 @@
-import { getPage, getPages } from "@/sanity/sanity-utils";
+import { getPage } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
-
-export async function generateStaticParams() {
-  const pages = await getPages(); // fetch all slugs from Sanity
-  return pages.map((page) => ({
-    slug: page.slug, // must match your dynamic segment [slug]
-  }));
-}
 
 type Props = {
   params: { slug: string };
